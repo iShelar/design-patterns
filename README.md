@@ -10,4 +10,6 @@ examples rather than studied in the abstract.
 |---|---|---|
 | **Strategy** | `00_strategy.py` | Swapping discount calculation logic (regular/VIP/premium/first-order-promo) at runtime instead of branching on customer type. |
 
+![Strategy pattern UML class diagram](strategy-pattern-uml.svg)
+
 More patterns will be added here as I work through them.
