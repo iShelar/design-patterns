@@ -32,24 +32,38 @@ class FirstOrderPromoDiscount(DiscountStrategy):
 
 class OrderService:
     def __init__(self):
-        self.strategies = {
-            "vip": VipDiscount(),
-            "premium": PremiumDiscount(),
-            "first_order_promo": FirstOrderPromoDiscount(),
-            "regular": RegularDiscount(),
-        }
+        self.discount_strategy = None
+    
+    def set_discount_strategy(self, strategy: DiscountStrategy):
+        self.discount_strategy = strategy
 
-    def checkout(self, customer_type: str, subtotal: float) -> float:
-        strategy = self.strategies[customer_type]
-        discount = strategy.discount(subtotal)
+    def checkout(self, subtotal: float) -> float:
+        discount = self.discount_strategy.discount(subtotal)
         print(f'Subtotal: {subtotal}, Discount Applied: {discount}, After Discount Subtotal: {subtotal - discount}')
         return subtotal - discount
 
+class OrderController:
+    def __init__(self):
+        self.order_service = OrderService()
+    
+    def checkout(self, customer_type: str, subtotal: float) -> float:
+        strategies = {
+            "regular": RegularDiscount(),
+            "vip": VipDiscount(),
+            "premium": PremiumDiscount(),
+            "first_order": FirstOrderPromoDiscount(),
+        }
+        
+        strategy = strategies[customer_type]
+        self.order_service.set_discount_strategy(strategy)
+
+        return self.order_service.checkout(subtotal)
 
 
-service = OrderService()
 
-service.checkout("regular", 1000)
-service.checkout("vip", 1000)
-service.checkout("premium", 1000)
-service.checkout("first_order_promo", 1000)
+controller = OrderController()
+
+controller.checkout("regular", 1000)
+controller.checkout("vip", 1000)
+
+controller.checkout("first_order", 1000)
