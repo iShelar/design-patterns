@@ -32,8 +32,11 @@ class Order(Observable): # order is a Observable
             self._observers.remove(observer)
 
     def notify(self) -> None:
-        for o in self._observers:
-            o.update(self.order_id, self.status)
+        for o in list(self._observers): # if obsever after first notification, removes the observer from list, it will give error. So, we make a copy of the observer's list.
+            try: # try because one observer fails shouldn't affect other observers.
+                o.update(self.order_id, self.status)
+            except Exception as e:
+                print(f"Observer {o} failed: {e}")
     
     def set_status(self, status) -> None:
         if self.status == status:
