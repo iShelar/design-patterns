@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" role="img" aria-label="UML class diagram of the Decorator pattern applied to HTTP middleware">
+  <rect x="0" y="0" width="1000" height="700" fill="#ffffff"/>
+
+  <!-- ============ relationships ============ -->
+
+  <!-- generalization: Application, Middleware -> Handler -->
+  <line x1="250" y1="200" x2="250" y2="160" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="690" y1="200" x2="690" y2="160" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="250" y1="160" x2="690" y2="160" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="470" y1="160" x2="470" y2="122" stroke="#1f2937" stroke-width="1.5"/>
+  <polygon points="470,110 462,122 478,122" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+
+  <!-- generalization: LoggingMiddleware, AuthenticationMiddleware -> Middleware -->
+  <line x1="550" y1="420" x2="550" y2="380" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="830" y1="420" x2="830" y2="380" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="550" y1="380" x2="830" y2="380" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="690" y1="380" x2="690" y2="308" stroke="#1f2937" stroke-width="1.5"/>
+  <polygon points="690,296 682,308 698,308" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+
+  <!-- Middleware -> Handler : aggregation (handler field, the has-a wrapped-instance relationship) -->
+  <polygon points="820,257 832,249.5 844,257 832,264.5" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+  <polyline points="844,257 880,257 880,75 580,75" stroke="#1f2937" stroke-width="1.5" fill="none"/>
+  <text x="884" y="253" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#6b7280">handler</text>
+
+  <!-- ============ classes ============ -->
+
+  <!-- Handler (abstract) -->
+  <rect x="360" y="40" width="220" height="70" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="360" y="40" width="220" height="44" fill="#eaf0fe"/>
+  <rect x="360" y="40" width="220" height="70" fill="none" stroke="#2563eb" stroke-width="1.5"/>
+  <line x1="360" y1="84" x2="580" y2="84" stroke="#2563eb" stroke-width="1"/>
+  <text x="470" y="57" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9.5" letter-spacing="1" fill="#2563eb">&#171;abstract&#187;</text>
+  <text x="470" y="74" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-style="italic" font-weight="600" font-size="13" fill="#1f2937">Handler</text>
+  <text x="370" y="99" font-family="Menlo, Consolas, monospace" font-style="italic" font-size="10.5" fill="#1f2937">+ handle(request: str): str</text>
+
+  <!-- Application -->
+  <rect x="150" y="200" width="200" height="64" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+  <rect x="150" y="200" width="200" height="30" fill="#eef2f7"/>
+  <rect x="150" y="200" width="200" height="64" fill="none" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="150" y1="230" x2="350" y2="230" stroke="#1f2937" stroke-width="1"/>
+  <text x="250" y="219" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="13" fill="#1f2937">Application</text>
+  <text x="160" y="246" font-family="Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937">+ handle(request: str): str</text>
+
+  <!-- Middleware (abstract) -->
+  <rect x="560" y="200" width="260" height="96" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="560" y="200" width="260" height="44" fill="#eaf0fe"/>
+  <rect x="560" y="200" width="260" height="96" fill="none" stroke="#2563eb" stroke-width="1.5"/>
+  <line x1="560" y1="244" x2="820" y2="244" stroke="#2563eb" stroke-width="1"/>
+  <line x1="560" y1="270" x2="820" y2="270" stroke="#2563eb" stroke-width="1"/>
+  <text x="690" y="217" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9.5" letter-spacing="1" fill="#2563eb">&#171;abstract&#187;</text>
+  <text x="690" y="234" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-style="italic" font-weight="600" font-size="13" fill="#1f2937">Middleware</text>
+  <text x="570" y="260" font-family="Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937">- handler: Handler</text>
+  <text x="570" y="286" font-family="Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937">+ Middleware(handler: Handler)</text>
+
+  <!-- LoggingMiddleware -->
+  <rect x="445" y="420" width="210" height="64" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+  <rect x="445" y="420" width="210" height="30" fill="#eef2f7"/>
+  <rect x="445" y="420" width="210" height="64" fill="none" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="445" y1="450" x2="655" y2="450" stroke="#1f2937" stroke-width="1"/>
+  <text x="550" y="439" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="12.5" fill="#1f2937">LoggingMiddleware</text>
+  <text x="455" y="466" font-family="Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937">+ handle(request: str): str</text>
+
+  <!-- AuthenticationMiddleware -->
+  <rect x="700" y="420" width="260" height="64" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+  <rect x="700" y="420" width="260" height="30" fill="#eef2f7"/>
+  <rect x="700" y="420" width="260" height="64" fill="none" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="700" y1="450" x2="960" y2="450" stroke="#1f2937" stroke-width="1"/>
+  <text x="830" y="439" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="11.5" fill="#1f2937">AuthenticationMiddleware</text>
+  <text x="710" y="466" font-family="Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937">+ handle(request: str): str</text>
+
+  <!-- ============ legend ============ -->
+  <line x1="0" y1="656" x2="1000" y2="656" stroke="#e5e7eb" stroke-width="1"/>
+
+  <line x1="300" y1="676" x2="324" y2="676" stroke="#1f2937" stroke-width="1.5"/>
+  <polygon points="324,676 334,670.5 334,681.5" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="342" y="680" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#374151">generalization (is-a)</text>
+
+  <line x1="560" y1="676" x2="584" y2="676" stroke="#1f2937" stroke-width="1.5"/>
+  <polygon points="584,676 594,670.5 604,676 594,681.5" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="612" y="680" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#374151">aggregation (has-a)</text>
+</svg>
