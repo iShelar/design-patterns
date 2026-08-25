@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 640" role="img" aria-label="UML class diagram of the Decorator pattern as implemented in 02_decorator.py: Beverage is the component interface, Decaf and Espresso are concrete components, AddonsDecorator is the abstract decorator, and Caramel and Soy wrap any Beverage at runtime">
+  <rect x="0" y="0" width="980" height="640" fill="#ffffff"/>
+
+  <!-- ============ relationships ============ -->
+
+  <!-- generalization: Decaf -> Beverage -->
+  <line x1="140" y1="240" x2="140" y2="200" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="140" y1="200" x2="490" y2="200" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="490" y1="200" x2="490" y2="134" stroke="#1f2937" stroke-width="1.5"/>
+  <polygon points="490,122 482,134 498,134" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+
+  <!-- generalization: Espresso -> Beverage -->
+  <line x1="360" y1="240" x2="360" y2="200" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="360" y1="200" x2="490" y2="200" stroke="#1f2937" stroke-width="1.5"/>
+
+  <!-- generalization: AddonsDecorator -> Beverage -->
+  <line x1="710" y1="240" x2="710" y2="200" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="710" y1="200" x2="490" y2="200" stroke="#1f2937" stroke-width="1.5"/>
+
+  <!-- generalization: Caramel -> AddonsDecorator -->
+  <line x1="560" y1="440" x2="560" y2="400" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="560" y1="400" x2="710" y2="400" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="710" y1="400" x2="710" y2="318" stroke="#1f2937" stroke-width="1.5"/>
+  <polygon points="710,306 702,318 718,318" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+
+  <!-- generalization: Soy -> AddonsDecorator -->
+  <line x1="820" y1="440" x2="820" y2="400" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="820" y1="400" x2="710" y2="400" stroke="#1f2937" stroke-width="1.5"/>
+
+  <!-- composition: Caramel -> Beverage (beverage) -->
+  <polyline points="520,470 430,470 430,134 490,134" stroke="#1f2937" stroke-width="1.5" fill="none"/>
+  <polygon points="490,134 484,144 496,144" fill="#1f2937" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="438" y="300" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#6b7280">beverage</text>
+
+  <!-- composition: Soy -> Beverage (beverage) -->
+  <polyline points="780,470 860,470 860,134 600,134" stroke="#1f2937" stroke-width="1.5" fill="none"/>
+  <polygon points="600,134 606,144 594,144" fill="#1f2937" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="868" y="300" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#6b7280">beverage</text>
+
+  <!-- client note connector -->
+  <line x1="490" y1="30" x2="490" y2="48" stroke="#9ca3af" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <!-- ============ classes ============ -->
+
+  <!-- client note -->
+  <path d="M250,0 L730,0 L746,16 L746,48 L250,48 Z" fill="#ffffff" stroke="#9ca3af" stroke-width="1.2"/>
+  <path d="M730,0 L730,16 L746,16" stroke="#9ca3af" stroke-width="1.2" fill="none"/>
+  <text x="498" y="30" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10.5" fill="#6b7280">beverage = Soy(Espresso())</text>
+
+  <!-- Beverage (abstract) -->
+  <rect x="380" y="48" width="220" height="86" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="380" y="48" width="220" height="44" fill="#eaf0fe"/>
+  <rect x="380" y="48" width="220" height="86" fill="none" stroke="#2563eb" stroke-width="1.5"/>
+  <line x1="380" y1="92" x2="600" y2="92" stroke="#2563eb" stroke-width="1"/>
+  <text x="490" y="65" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9.5" letter-spacing="1" fill="#2563eb">&#171;abstract&#187;</text>
+  <text x="490" y="82" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-style="italic" font-weight="600" font-size="13" fill="#1f2937">Beverage</text>
+  <text x="390" y="108" font-family="Menlo, Consolas, monospace" font-style="italic" font-size="10.5" fill="#1f2937">+ get_description(): str</text>
+  <text x="390" y="122" font-family="Menlo, Consolas, monospace" font-style="italic" font-size="10.5" fill="#1f2937">+ cost(): float</text>
+
+  <!-- Decaf -->
+  <rect x="40" y="240" width="200" height="88" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+  <rect x="40" y="240" width="200" height="30" fill="#eef2f7"/>
+  <rect x="40" y="240" width="200" height="88" fill="none" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="40" y1="270" x2="240" y2="270" stroke="#1f2937" stroke-width="1"/>
+  <line x1="40" y1="296" x2="240" y2="296" stroke="#1f2937" stroke-width="1"/>
+  <text x="140" y="259" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="12" fill="#1f2937">Decaf</text>
+  <text x="50" y="286" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">- price: float</text>
+  <text x="50" y="312" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">+ get_description(): str</text>
+  <text x="50" y="325" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">+ cost(): float</text>
+
+  <!-- Espresso -->
+  <rect x="260" y="240" width="200" height="88" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+  <rect x="260" y="240" width="200" height="30" fill="#eef2f7"/>
+  <rect x="260" y="240" width="200" height="88" fill="none" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="260" y1="270" x2="460" y2="270" stroke="#1f2937" stroke-width="1"/>
+  <line x1="260" y1="296" x2="460" y2="296" stroke="#1f2937" stroke-width="1"/>
+  <text x="360" y="259" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="12" fill="#1f2937">Espresso</text>
+  <text x="270" y="286" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">- price: float</text>
+  <text x="270" y="312" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">+ get_description(): str</text>
+  <text x="270" y="325" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">+ cost(): float</text>
+
+  <!-- AddonsDecorator (abstract) -->
+  <rect x="600" y="240" width="220" height="70" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="600" y="240" width="220" height="44" fill="#eaf0fe"/>
+  <rect x="600" y="240" width="220" height="70" fill="none" stroke="#2563eb" stroke-width="1.5"/>
+  <line x1="600" y1="284" x2="820" y2="284" stroke="#2563eb" stroke-width="1"/>
+  <text x="710" y="257" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9.5" letter-spacing="1" fill="#2563eb">&#171;abstract&#187;</text>
+  <text x="710" y="274" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-style="italic" font-weight="600" font-size="13" fill="#1f2937">AddonsDecorator</text>
+  <text x="610" y="300" font-family="Menlo, Consolas, monospace" font-style="italic" font-size="10.5" fill="#1f2937">+ get_description(): str</text>
+  <text x="610" y="314" font-family="Menlo, Consolas, monospace" font-style="italic" font-size="10.5" fill="#1f2937">+ cost(): float</text>
+
+  <!-- Caramel -->
+  <rect x="460" y="440" width="200" height="116" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+  <rect x="460" y="440" width="200" height="30" fill="#eef2f7"/>
+  <rect x="460" y="440" width="200" height="116" fill="none" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="460" y1="470" x2="660" y2="470" stroke="#1f2937" stroke-width="1"/>
+  <line x1="460" y1="496" x2="660" y2="496" stroke="#1f2937" stroke-width="1"/>
+  <text x="560" y="459" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="12" fill="#1f2937">Caramel</text>
+  <text x="470" y="486" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">- beverage: Beverage</text>
+  <text x="470" y="500" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">- price: float</text>
+  <text x="470" y="526" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">+ get_description(): str</text>
+  <text x="470" y="540" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">+ cost(): float</text>
+  <text x="470" y="553" font-family="Helvetica, Arial, sans-serif" font-style="italic" font-size="8.5" fill="#6b7280">// delegates, then adds 1.49</text>
+
+  <!-- Soy -->
+  <rect x="720" y="440" width="200" height="116" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+  <rect x="720" y="440" width="200" height="30" fill="#eef2f7"/>
+  <rect x="720" y="440" width="200" height="116" fill="none" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="720" y1="470" x2="920" y2="470" stroke="#1f2937" stroke-width="1"/>
+  <line x1="720" y1="496" x2="920" y2="496" stroke="#1f2937" stroke-width="1"/>
+  <text x="820" y="459" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="12" fill="#1f2937">Soy</text>
+  <text x="730" y="486" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">- beverage: Beverage</text>
+  <text x="730" y="500" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">- price: float</text>
+  <text x="730" y="526" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">+ get_description(): str</text>
+  <text x="730" y="540" font-family="Menlo, Consolas, monospace" font-size="10" fill="#1f2937">+ cost(): float</text>
+  <text x="730" y="553" font-family="Helvetica, Arial, sans-serif" font-style="italic" font-size="8.5" fill="#6b7280">// delegates, then adds 1.29</text>
+
+  <!-- ============ legend ============ -->
+  <line x1="0" y1="590" x2="980" y2="590" stroke="#e5e7eb" stroke-width="1"/>
+
+  <line x1="40" y1="614" x2="64" y2="614" stroke="#1f2937" stroke-width="1.5"/>
+  <polygon points="64,614 74,608.5 74,619.5" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="82" y="618" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#374151">generalization (is-a)</text>
+
+  <line x1="290" y1="614" x2="314" y2="614" stroke="#1f2937" stroke-width="1.5"/>
+  <polygon points="314,614 320,620 326,614 320,608" fill="#1f2937" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="334" y="618" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#374151">composition (wraps)</text>
+</svg>
